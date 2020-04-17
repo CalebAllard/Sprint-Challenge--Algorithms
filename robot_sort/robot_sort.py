@@ -103,46 +103,33 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        self.set_light_on()
-        self.swap_item()
-        while self.light_is_on():
-            self.set_light_off()
-            if self.can_move_right():
-                self.move_right()
-            else:
-                self.go_to_start_of_array()
-            if self.compare_item() == 1:
-                self.swap_item()
-                self.set_light_on()
-                self.move_left()
-                self.swap_item()
-                self.move_right()
-                self.swap_item()
-                continue
-            elif self.compare_item() == -1:
-                self.move_left()
-                self.swap_item()
-                self.set_light_on()
-                self.move_right()
-                self.swap_item()
-                continue
-            if self.compare_item() == None:
-                self.move_left()
-                if self.compare_item() == -1:
-                    self.swap_item()
-                    self.set_light_on()
-                    self.move_right()
-                    self.swap_item()
-                    continue
-                if self.compare_item() == 1:
-                    self.more_right()
-                    self.swap_item()
-                    self.go_to_start_of_array()
-                    self.swap_item()
-                    continue
+        # Bubble Sort
+        
+        
+        
+
+        # Selection Sort
+        # self.set_light_on()
+        # self.swap_item()
+        # while self.light_is_on():
             
-
-
+        #     while self.move_right():
+        #         if self.compare_item() == 1:
+        #             self.swap_item()
+            
+        #     if self.compare_item() is None and self.can_move_right() is False:
+        #         self.swap_item()
+        #         self.set_light_off()
+        #         break
+                
+        #     while self.move_left():
+        #         if self.compare_item() is None:
+        #             self.swap_item()
+        #             self.move_right()
+        #             self.swap_item()
+        #             break
+                
+        
         # Fill this out
         
 
