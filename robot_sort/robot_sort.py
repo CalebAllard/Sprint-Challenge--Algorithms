@@ -91,13 +91,60 @@ class SortingRobot:
         Returns True if the robot's light is on and False otherwise.
         """
         return self._light == "ON"
-
+    
+    def go_to_start_of_array(self):
+        """
+        Goes to beginning of the array, Helper function
+        """
+        while self.can_move_left():
+            self.move_left()
+    
     def sort(self):
         """
         Sort the robot's list.
         """
+        self.set_light_on()
+        self.swap_item()
+        while self.light_is_on():
+            self.set_light_off()
+            if self.can_move_right():
+                self.move_right()
+            else:
+                self.go_to_start_of_array()
+            if self.compare_item() == 1:
+                self.swap_item()
+                self.set_light_on()
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+                self.swap_item()
+                continue
+            elif self.compare_item() == -1:
+                self.move_left()
+                self.swap_item()
+                self.set_light_on()
+                self.move_right()
+                self.swap_item()
+                continue
+            if self.compare_item() == None:
+                self.move_left()
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.set_light_on()
+                    self.move_right()
+                    self.swap_item()
+                    continue
+                if self.compare_item() == 1:
+                    self.more_right()
+                    self.swap_item()
+                    self.go_to_start_of_array()
+                    self.swap_item()
+                    continue
+            
+
+
         # Fill this out
-        pass
+        
 
 
 if __name__ == "__main__":
